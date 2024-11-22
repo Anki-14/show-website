@@ -1,0 +1,17 @@
+<app-navbar></app-navbar>
+<br><br>
+<div class="container" *ngIf="product_info">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+          <img [src]="product_info.product_img" width="100%">
+        </div>
+        <div class="col-md-5">
+            {{product_info.cat_name}}
+            <h1>{{product_info.product_name}}</h1>
+            <h1>&#8377;{{product_info.price}} /-</h1>
+            <button *ngIf="product_info.cart=='No'" (click)="addtoCart()" class="btn btn-primary">Add To Cart</button>
+            <button *ngIf="product_info.cart=='Yes'"  class="btn btn-success bg-lg" >Added In Cart</button>
+             
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<app-navbar></app-navbar>
+
+<br>
+<h2 class="text-center">User Cart</h2>
+<div class="contaner" *ngIf="products">
+    <div class="row">
+        <div class="col-md-12">
+            
+            <table class="table table-sm">
+                <tr>
+                    <th >Image</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    
+                    <th>Total</th>
+                    <th>Delete</th>
+
+                </tr>
+                <tr *ngFor="let row of products">
+                   <td class="pt-3 pb-3"><img [src]="row.cat_img" height="70px"></td>
+                   <td style="vertical-align: middle;">{{row.product_name}}</td>
+                   <td style="vertical-align: middle;">&#8377;{{row.price}} /-</td>
+                   <td style="vertical-align: middle;">
+                       <button (click)="desc(row.product_econ_cart_id )">-</button>
+                        &nbsp;&nbsp;&nbsp;{{row.qty}}&nbsp;&nbsp;&nbsp;
+                        <button (click)="inc(row.product_econ_cart_id )">+</button>
+                        
+                    </td>
+                    <td style="vertical-align: middle;">&#8377;{{row.price*row.qty}} /-</td>
+                    <td  style="vertical-align: middle;"><button class="btn btn-danger" (click)="remove(row.product_econ_cart_id )">Del</button></td>
+                 </tr>
+                 <tr>
+                    <th colspan="4" style="font-size: 24px; font-weight: bold ; text-align: right;">
+                         TOTAL
+                    </th>
+                    <th style="font-size: 24px; font-weight: bold ; ">&#8377;{{getTotal()}} /-</th>
+                 </tr>
+             </table>
+             
+         </div>
+         <div class="col-md-12 text-center"> 
+            <button routerLink="/place_order" class="btn btn-primary btn-lg">Place Order</button>
+        </div>
+        
+     </div>
+ </div>
+                   

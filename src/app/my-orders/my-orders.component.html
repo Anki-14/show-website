@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+<h2 class="text-center mt-3">My Orders</h2>
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-sm">
+                <tr>
+                    <th>SN</th>
+                    <th>Data</th>
+                    <th>Amount</th>
+                    <th>Address</th>
+                    <th>Payment Type</th>
+                    <th>Invoice</th>
+            
+                </tr>
+                <tr *ngFor="let row of orders; let i=index">
+                    <td>{{i+1}}</td>
+                    <td>{{row.entry_date}}</td>
+                    <td>{{row.ttl_amount}}</td>
+                    <td>{{row.area}},{{row.city}}-{{row.pincode}}</td>
+                    <td>{{row.payment_type}}</td>
+                    <td>
+                        <button routerLink="/order_bill/{{row.product_order_id}}" class="btn btn-primary btn-sm">Print</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

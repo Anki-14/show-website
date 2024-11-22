@@ -1,0 +1,30 @@
+<app-navbar></app-navbar>
+<form #userForm="ngForm" (ngSubmit)="createAccount(userForm)">
+<div class="container">
+    <br><br>
+    
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="border shadow p-4">
+                <h3>Create Account</h3>
+                <br>
+                Enter Name
+                <input type="text" class="form-control" name="user_name" ngModel>
+                <br>
+                Enter Mobile
+                <input type="number" class="form-control" name="user_mobile" ngModel >
+                <br>
+                Enter Email
+                <input type="email" class="form-control" name="user_email" ngModel >
+                <br>
+                Enter Password
+                <input type="password" class="form-control" name="user_password" ngModel>
+                <br><br>
+                <button class="btn btn-primary mt-2 mb-3">Login Now</button>
+                <br>
+                New User <span routerLink="/create_account">Create Account</span>
+            </div>
+        </div>
+    </div>
+</div>
+</form>

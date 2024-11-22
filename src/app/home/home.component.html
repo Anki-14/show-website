@@ -1,0 +1,47 @@
+
+<app-navbar></app-navbar>
+
+
+<div id="demo" class="carousel slide" data-ride="carousel">
+
+   
+    
+    <!-- The slideshow -->
+    <div class="carousel-inner">
+
+      <div class="carousel-item " [class.active]="i==0" *ngFor="let slide of slides;let i=index;">
+        <img [src]="slide.slider_img" alt="Los Angeles" width="100%" height="600">
+      </div>
+    </div>
+    
+    <!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </a>
+  </div>
+  <br>
+
+<div class="container">
+     <div class="row">
+        <div class="col-md-12">
+            <h1>All Products</h1>
+        </div>
+            <div class="col-md-3 mb-3" *ngFor="let row of products">
+                <div class="card"  routerLink="/product-details/{{row.product_tbl_id}}">
+                    <div class="card-header p-2">
+                        {{row.product_name}}
+                    </div>
+                    <div class="card-body p-0">
+                        <img [src]="row.product_img" width="100%">
+                        
+                    </div>
+                    <div class="card-footer">
+                       &#8377; {{row.price}} /-
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
